@@ -157,9 +157,3 @@ def get_ip():
     ip = '.'.join(_ip)
     return ip
 
-
-print(get_ip())
-print(get_ip())
-print(get_ip())
-print(get_ip())
-print(get_ip())
