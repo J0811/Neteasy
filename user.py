@@ -2,6 +2,7 @@
 import time
 import random
 import math
+import cnip
 import re
 from api import NetEase
 import os
@@ -46,7 +47,7 @@ class User(object):
             self.taskInfo('登录失败，请填写账号密码或cookie')
             raise Exception('请填写账号密码或cookie')
         self.music = self.login_check(user_config['username'], user_config['password'], user_config['cookie'], user_config.get(
-            'countrycode', ''), user_config['X-Real-IP'])
+            'countrycode', ''), cnip.get_ip())
         if self.music.uid != 0:
             self.isLogined = True
             self.user_setting = user_setting
