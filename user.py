@@ -526,11 +526,10 @@ class User(object):
         if not resp['profile']['followed']:
             follow_resp = self.music.user_follow(author_uid)
             if follow_resp['code'] == 200:
-                self.taskTitle('关注作者')
-                self.taskInfo('感谢关注', author_nickname)
+                self.taskTitle('xxxxxxxxxxxxxxxxxxxx')
+                # self.taskInfo('感谢关注', author_nickname)
                 # self.taskInfo('如果不想关注，请在配置文件里修改，并在官方客户端里取消关注')
-                self.taskInfo(
-                    '如果不想关注，请在配置文件里修改，并在[主页](https://music.163.com/#/user/home?id='+str(author_uid)+')里取消关注', False)
+                # self.taskInfo('如果不想关注，请在配置文件里修改，并在[主页](https://music.163.com/#/user/home?id='+str(author_uid)+')里取消关注', False)
                 self.finishTask()
 
     def sign(self):
