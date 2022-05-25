@@ -16,7 +16,7 @@
 7. 自动领取 vip 成长值
 8. 多种[推送方式](#推送)
 9. 支持多账号
-10. 支持[腾讯云函数](#一部署到腾讯云函数) & [青龙面板](#二部署到青龙面板) & [本地运行](#三本地运行) & [docker 部署](#四使用docker部署)
+;10. 支持[腾讯云函数](#一部署到腾讯云函数) & [青龙面板](#二部署到青龙面板) & [本地运行](#三本地运行) & [docker 部署](#四使用docker部署)
 
 > 开发不易，如果你觉得本项目对你有用，可以点个 star，也可以到底部给个[赞赏](#赞赏)
 
@@ -29,67 +29,67 @@
 - 禁止将代码用于商业用途，包括打包售卖，收费代挂等。
 - 为了账号安全考虑，请勿将账号密码交给他人代挂。
 
-## 一、部署到腾讯云函数
+;## 一、部署到腾讯云函数
 
-### 开通服务
+;### 开通服务
 
-首次使用云函数，依次登录 [SCF 云函数控制台](https://console.cloud.tencent.com/scf) 和 [SLS 控制台](https://console.cloud.tencent.com/sls) 开通相关服务，确保账户下已开通服务并创建相应[服务角色](https://console.cloud.tencent.com/cam/role) **SCF_QcsRole、SLS_QcsRole**
+;首次使用云函数，依次登录 [SCF 云函数控制台](https://console.cloud.tencent.com/scf) 和 [SLS 控制台](https://console.cloud.tencent.com/sls) 开通相关服务，确保账户下已开通服务并创建相应[服务角色](https://console.cloud.tencent.com/cam/role) **SCF_QcsRole、SLS_QcsRole**
 
-> 注意！为了确保权限足够，获取这两个参数时不要使用子账户！此外，腾讯云账户需要[实名认证](https://console.cloud.tencent.com/developer/auth)。
+;> 注意！为了确保权限足够，获取这两个参数时不要使用子账户！此外，腾讯云账户需要[实名认证](https://console.cloud.tencent.com/developer/auth)。
 
-### 获取密钥
+;### 获取密钥
 
-在腾讯云[API 密钥管理](https://console.cloud.tencent.com/cam/capi)新建密钥，获取 SecretId 和 SecretKey
+;在腾讯云[API 密钥管理](https://console.cloud.tencent.com/cam/capi)新建密钥，获取 SecretId 和 SecretKey
 
-![Fork](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/getsecret.png)
+;![Fork](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/getsecret.png)
 
-### fork 本项目
+;### fork 本项目
 
-在 GitHub 上 fork [本项目](https://github.com/chen310/NeteaseCloudMusicTasks)
+;在 GitHub 上 fork [本项目](https://github.com/chen310/NeteaseCloudMusicTasks)
 
-![Fork](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/fork.png)
+;![Fork](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/fork.png)
 
-### 创建 Secrets
+;### 创建 Secrets
 
-fork 之后，点击右上方 `settings`
+;fork 之后，点击右上方 `settings`
 
-![Settings](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/settings.png)
+;![Settings](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/settings.png)
 
-在页面点击 `Secrets`，点击 `Actions`，然后点击 `New repository secret` 创建新的 secret。
+;在页面点击 `Secrets`，点击 `Actions`，然后点击 `New repository secret` 创建新的 secret。
 
-![NewSecrets](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/newsecrets.png)
+;![NewSecrets](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/newsecrets.png)
 
-| Name          | Value                     | 是否必填 |
-| :------------ | :------------------------ | :------- |
-| SECRET_ID     | 填写之前获取的 SecretId   | 必填     |
-| SECRET_KEY    | 填写之前获取的 SecretKey  | 必填     |
-| CRON          | 定时触发器的时间          | 选填     |
-| FUNCTION_NAME | 自定义函数名              | 选填     |
-| REGION        | 地域，默认为 ap-guangzhou | 选填     |
+;| Name          | Value                     | 是否必填 |
+;| :------------ | :------------------------ | :------- |
+;| SECRET_ID     | 填写之前获取的 SecretId   | 必填     |
+;| SECRET_KEY    | 填写之前获取的 SecretKey  | 必填     |
+;| CRON          | 定时触发器的时间          | 选填     |
+;| FUNCTION_NAME | 自定义函数名              | 选填     |
+;| REGION        | 地域，默认为 ap-guangzhou | 选填     |
 
-先填写先前获取的 SECRET_ID
+;先填写先前获取的 SECRET_ID
 
-![SECRET_ID](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/secretid.png)
+;![SECRET_ID](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/secretid.png)
 
-同理，填写先前获取的 SECRET_KEY
+;同理，填写先前获取的 SECRET_KEY
 
-![SECRET_KEY](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/secretkey.png)
+;![SECRET_KEY](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/secretkey.png)
 
-CRON 默认为 `0 35 8 * * * *` 表示每天 8 点 35 分触发。如需更改，则如下图所示创建此 secret，。比如：`0 20 12 * * * *` 表示每天 12 点 20 分触发，`0 0 12,16 * * * *` 表示每天 12 点和 16 点各触发一次。
+;CRON 默认为 `0 35 8 * * * *` 表示每天 8 点 35 分触发。如需更改，则如下图所示创建此 secret，。比如：`0 20 12 * * * *` 表示每天 12 点 20 分触发，`0 0 12,16 * * * *` 表示每天 12 点和 16 点各触发一次。
 
-![Cron](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/cron.png)
+;![Cron](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/cron.png)
 
-FUNCTION_NAME 为函数名，不填写默认为 `NeteaseCloudMusicTasks`。如需更改，则创建此 secret，并填写自定义的函数名，命名规则：只能包含字母、数字、下划线、连字符，以字母开头，以数字或字母结尾，2~60 个字符。
+;FUNCTION_NAME 为函数名，不填写默认为 `NeteaseCloudMusicTasks`。如需更改，则创建此 secret，并填写自定义的函数名，命名规则：只能包含字母、数字、下划线、连字符，以字母开头，以数字或字母结尾，2~60 个字符。
 
-REGION 默认为 `ap-guangzhou` ，可选的地域详见[地域列表](https://cloud.tencent.com/document/product/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
+;REGION 默认为 `ap-guangzhou` ，可选的地域详见[地域列表](https://cloud.tencent.com/document/product/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
 
-添加完毕可以看到
+;添加完毕可以看到
 
-![Cron](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/secretlist.png)
+;![Cron](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/secretlist.png)
 
-### 部署
+;### 部署
 
-击项目上方的 `Actions`
+;击项目上方的 `Actions`
 
 ![Actions](https://cdn.jsdelivr.net/gh/chen310/NeteaseCloudMusicTasks/public/img/actions.png)
 
